@@ -1,5 +1,5 @@
 import requests
-
+import json
 json_data = {
     "title": "foo",
     "body": "bar",

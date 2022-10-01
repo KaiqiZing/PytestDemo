@@ -1,3 +1,5 @@
+import json
+
 import requests
 
 params = {
@@ -5,5 +7,7 @@ params = {
     "appkey": "0c818521d38759e1"
 }
 r = requests.post('https://api.binstd.com/shouji/query', params=params)
-print(r.status_code)
-print(r.json())
+
+json_data = r.json()
+loads_data_json = json.dumps(json_data)
+print(loads_data_json[status])

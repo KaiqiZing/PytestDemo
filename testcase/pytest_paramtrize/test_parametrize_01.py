@@ -2,6 +2,15 @@ import pytest
 """
 单次循环获取数据
 多次循环获取数据
+
+# 单次循环
+@pytest.mark.parametrize("a",["b"])
+def test_parametrize(a):
+    print(a)
+# 多次循环
+@pytest.mark.parametrize("a,b",[("c","d"),("e","f")])
+def test_parametrize(a,b):
+    print(a,b)
 """
 
 @pytest.mark.parametrize("name", ["test1"])
@@ -16,5 +25,3 @@ def test_parametrize_01(name):
 @pytest.mark.parametrize("name1", ["test1", "test2","test3"])
 def test_parametrize_02(name1):
     assert name1 == "test1"
-
-[('魔兽世界', '为了部落'), ('英雄联盟', '德玛西亚哈哈'), ('地平线', 'welcome backsir')]

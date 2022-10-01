@@ -1,14 +1,19 @@
 import requests
 import pytest
-
+"""
+Autouse--usage
+If True, the fixture func is activated for all tests that can see it.
+If False (the default), an explicit reference is needed to activate
+the fixture.
+"""
 # scope 默认方法是function
-@pytest.fixture(scope="class", autouse=True)  # 每个类调用一次
+@pytest.fixture(scope="class", autouse=False)  # auto=True=, 每个类都执行一次，auto=False需要单独调用激活函数
 def func_method():
     print("这是class的前置方法")
 
 
 class TestFixture_First:
-    def test_mobile(self):
+    def test_mobile(self, func_method):  # auto=False
         print("测试手机归属地get请求")
         r = requests.get('https://api.binstd.com/shouji/query',
                          params={"shouji": "13456755448", "appkey": "0c818521d38759e1"})

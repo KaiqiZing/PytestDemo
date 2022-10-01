@@ -17,11 +17,11 @@ def function_conftest():
 
 
 
-# @pytest.fixture(scope="class")
-# def class_conftest():
-#     print("class的前置步骤，conftest配置文件")
-#
-#
-# @pytest.fixture(scope="module")
-# def module_conftest():
-#     print("module的前置步骤，conftest配置文件")
+@pytest.fixture(scope="class")
+def class_conftest():
+    print("class的前置步骤，conftest配置文件")
+
+
+@pytest.fixture(scope="module")
+def module_conftest():
+    print("module的前置步骤，conftest配置文件")
